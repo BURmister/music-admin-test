@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "catalog_items",
+  "info": {
+    "singularName": "catalog-item",
+    "pluralName": "catalog-items",
+    "displayName": "Catalog Items",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "PriceRUB": {
+      "type": "decimal"
+    },
+    "catalog_sections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::catalog-section.catalog-section",
+      "mappedBy": "catalog_items"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Bestseller": {
+      "type": "boolean"
+    },
+    "Best_choise": {
+      "type": "boolean"
+    }
+  }
+}
